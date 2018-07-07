@@ -10,13 +10,13 @@
         <label for="sex">英雄性别</label>
         <input v-model="formData.gender" type="text" class="form-control" id="sex" placeholder="Sex">
       </div>
-      <button @click.prevent="handleAdd" type="submit" class="btn btn-success">Submit</button>
+      <button @click.prevent="handleAdd" type="submit" class="btn btn-success">Add</button>
     </form>
   </div>
 </template>
 
 <script >
-  import axios from 'axios';
+  // import axios from 'axios';
   export default {
     data(){
       return {
@@ -28,8 +28,8 @@
     },
    methods:{
     handleAdd(){
-      axios
-          .post(' http://localhost:3000/heroes',this.formData)
+     this.$http
+          .post('heroes',this.formData)
           .then((res)=>{
             const {status,data} =res;
             if(status === 201){

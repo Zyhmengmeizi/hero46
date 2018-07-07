@@ -10,13 +10,13 @@
         <label for="sex">英雄性别</label>
         <input v-model="formData.gender" type="text" class="form-control" id="sex" placeholder="Sex">
       </div>
-      <button @click.prevent="handleEdit" type="submit" class="btn btn-success">Submit</button>
+      <button @click.prevent="handleEdit" type="submit" class="btn btn-success">edit</button>
     </form>
   </div>
 </template>
 
 <script>
-  import axios from 'axios';
+  // import axios from 'axios';
 
 
   export default {
@@ -26,6 +26,7 @@
         name:'',
         gender:''
        },
+       // 获取url上的id
        heroId :-1
       }
 
@@ -36,8 +37,8 @@
       },
       methods:{
         loadData(){
-          axios
-               .get(`http://localhost:3000/heroes/${this.heroId}`)
+          this.$http
+               .get(`heroes/${this.heroId}`)
                .then((res)=>{
                 if(res.status ===200){
                   this.formData = res.data;
@@ -48,8 +49,8 @@
                })
         },
         handleEdit(){
-          axios
-               .put(`http://localhost:3000/heroes/${this.heroId}`,this.formData)
+          this.$http
+               .put(`heroes/${this.heroId}`,this.formData)
                .then((res)=>{
                 if(res.status ===200){
                    this.$router.push({name:'heroes'})

@@ -34,7 +34,7 @@
 
 <script>
   // 导入模块
-  import axios from 'axios';
+  // import axios from 'axios';
 
   export default {
     data(){
@@ -47,8 +47,8 @@
     },
     methods:{
       loadDate(){
-        axios
-             .get('http://localhost:3000/heroes')
+        this.$http
+             .get('heroes')
              .then((res)=>{
                 const {data , status} = res;
                 if(status === 200){
@@ -60,8 +60,8 @@
           if(!confirm('是否确认删除？')){
             return;
           }
-          axios
-               .delete(`http://localhost:3000/heroes/${id}`)
+          this.$http
+               .delete(`heroes/${id}`)
                .then((res)=>{
                 if(res.status === 200){
                    this.loadDate();

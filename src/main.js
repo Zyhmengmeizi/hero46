@@ -7,6 +7,9 @@ import router from './routes/router';
 // 导入css
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './assets/css/index.css';
+import Myaxios from './plugins/myaxios';
+// 注册插件
+Vue.use(Myaxios);
 
 new Vue({
   el: '#app',
