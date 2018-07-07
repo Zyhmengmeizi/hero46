@@ -2,7 +2,10 @@
 <div>
  <!-- 头部 -->
  <app-header></app-header>
+ <!-- 侧边栏 -->
  <app-sidebar></app-sidebar>
+ <!-- 主内容区域 -->
+  <router-view></router-view>
 </div>
 </template>
 
