@@ -19,7 +19,8 @@
                 <td>{{item.name}}</td>
                 <td>{{item.gender}}</td>
                 <td>
-                  <a href="edit.html">edit</a>
+                <!--   <a href="edit.html">edit</a> -->
+                <router-link :to="{name:'heroedit', params:{id : item.id}}">edit</router-link>
                   &nbsp;&nbsp;
                   <a href="" @click.prevert="handelDelete(item.id)">delete</a>
                 </td>
